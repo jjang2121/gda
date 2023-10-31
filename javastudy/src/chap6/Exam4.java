@@ -14,8 +14,10 @@ public class Exam4 {
 		Rectangle3[] arr = new Rectangle3[5];
 		int areaSum = 0;
 		int lengthSum = 0;
+		int i=0;
+		int productRecCnt = 5;
 		
-		for (int i = 0; i < 5; i++) {
+		for (i = 0; i < productRecCnt; i++) {
 			int rWidth = 20 + (int) (Math.random() * 30);
 			int rHeight = 20 + (int) (Math.random() * 30);
 
@@ -26,9 +28,9 @@ public class Exam4 {
 			areaSum += arr[i].area();
 			lengthSum += arr[i].length();
 			System.out.println(arr[i]);
-			System.out.println();
 		}
-		System.out.printf("5개의 사각형 넓이의 합:%d, 둘레의 합:%d", areaSum, lengthSum);
+		System.out.println();
+		System.out.printf("%d개의 사각형 넓이의 합:%d, 둘레의 합:%d", productRecCnt, areaSum, lengthSum);
 		System.out.println();
 		
 		/*
