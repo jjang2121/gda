@@ -19,8 +19,14 @@ class Animal{
 	public void printName() {
 		System.out.println("이름(name) : "+ this.name);
 	}
+	public String returnName() {
+		return this.name;
+	}
 	public void printAge() {
 		System.out.println("나이(age) : "+ this.age);
+	}
+	public int returnAge() {
+		return this.age;
 	}
 
 	public void eat() {
@@ -39,6 +45,9 @@ public class Test2 {
 		// 클래스메서드 사용
 		a.printName();
 		a.printAge();
+		// return 사용
+		System.out.println("이름(name) : "+ a.returnName());
+		System.out.println("나이(age) : "+ a.returnAge());
 		a.eat();
 	}
 }
