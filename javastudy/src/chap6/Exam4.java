@@ -14,12 +14,11 @@ public class Exam4 {
 		Rectangle3[] arr = new Rectangle3[5];
 		int areaSum = 0;
 		int lengthSum = 0;
-		int i=0;
 		int productRecCnt = 5;
 		
-		for (i = 0; i < productRecCnt; i++) {
-			int rWidth = 20 + (int) (Math.random() * 30);
-			int rHeight = 20 + (int) (Math.random() * 30);
+		for (int i = 0; i < productRecCnt; i++) {
+			int rWidth = 20 + (int) (Math.random() * 31);
+			int rHeight = 20 + (int) (Math.random() * 31);
 
 			arr[i] = new Rectangle3();
 			arr[i].width = rWidth;
