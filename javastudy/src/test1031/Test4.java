@@ -17,17 +17,19 @@ class Student {
 	String name;
 	int ban, no, kor, eng, math;
 
-	public int getTotal() {
+	protected int getTotal() {
 		return kor + eng + math;
 	}
 
-	public float getAverage() {
-		return (float) getTotal() / 3;
+	protected float getAverage() {
+		// return (float) getTotal() / 3;
+		return getTotal() / 3f;
 	}
 
 	@Override
 	public String toString() {
-		return "국어:" + kor + "점, 영어:" + eng + "점, 수학:" + math + "점";
+		return String.format("%d반 %d번 %s 국어:%d점, 영어:%d점, 수학:%d점, 총점:%d, 평균:%.2f",
+							 ban, no, name, kor, eng, math, getTotal(), getAverage());
 	}
 }
 
@@ -40,9 +42,11 @@ public class Test4 {
 		s1.kor = 100;
 		s1.eng = 80;
 		s1.math = 85;
-		System.out.println(s1);
-		System.out.println("총점 : "+s1.getTotal());
+		System.out.println("총점 : " + s1.getTotal());
 		System.out.printf("평균 : %.2f", s1.getAverage());
+		System.out.println();
+		// 홍길동 학생의 전체 정보 출력
+		System.out.println(s1);
 		System.out.println();
 	}
 }
