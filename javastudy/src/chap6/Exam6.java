@@ -41,7 +41,7 @@ class Student2{
 		return kor+eng+math;
 	}
 	public float getAvg() {
-		return	(kor+eng+math)/3f;
+		return	getTotScore()/3f;
 	}
 	
 	@Override
