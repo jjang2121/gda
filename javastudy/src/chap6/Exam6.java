@@ -24,21 +24,31 @@ package chap6;
 */
 
 class Student2{
-	int studno, kor, eng, math;
-	String name;
+	private int studno, kor, eng, math;
+	private String name;
 	
 	public Student2(String name, int studno) {
+		/*
 		this.name = name;
 		this.studno = studno;
+		*/
+		this(name, studno, 0,0,0);
 	}
 	public Student2(String name, int studno, int kor, int eng, int math) {
-		this(name, studno);
+		/*
 		this.kor = kor;
 		this.eng = eng;
 		this.math = math;
+		*/
+		setName(name);
+		setStudno(studno);
+		setKor(kor);
+		setEng(eng);
+		setMath(math);
 	}
 	public int getTotScore() {
-		return kor+eng+math;
+		// return kor+eng+math;
+		return getKor() + getEng() + getMath();
 	}
 	public float getAvg() {
 		return	getTotScore()/3f;
@@ -47,18 +57,56 @@ class Student2{
 	@Override
 	public String toString() {
 		return String.format("학번:%d\n이름:%s\n국어:%d\n영어:%d\n수학:%d\n총점:%d\n평균:%.2f",
-							studno, name, kor, eng, math, getTotScore(), getAvg());
+							getStudno(), getName(), getKor(), getEng(), getMath(), getTotScore(), getAvg());
+	}
+	
+	// getter, setter 이용
+	public int getStudno() {
+		return studno;
+	}
+	public void setStudno(int studno) {
+		this.studno = studno;
+	}
+	public int getKor() {
+		return kor;
+	}
+	public void setKor(int kor) {
+		this.kor = kor;
+	}
+	public int getEng() {
+		return eng;
+	}
+	public void setEng(int eng) {
+		this.eng = eng;
+	}
+	public int getMath() {
+		return math;
+	}
+	public void setMath(int math) {
+		this.math = math;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	
 }
 
 public class Exam6 {
+	int num = 100;
+	
 	public static void main(String[] args) {
+		
 		Student2 s1 = new Student2("홍길동",1);
 		Student2 s2 = new Student2("김삿갓",2,80,90,70);
+		Student2 s3 = new Student2("김삿갓",2);
 		System.out.println(s1);
 		System.out.println("===========");
 		System.out.println(s2);
+		System.out.println("===========");
+		System.out.println(s3);
 		System.out.println("===========");
 	}
 }
