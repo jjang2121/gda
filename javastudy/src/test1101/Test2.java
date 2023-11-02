@@ -27,12 +27,16 @@ package test1101;
 전체 뒷면 동전의 갯수 :7
  */
 
-class Coin{
+class Coin {
 	int side;
 	int sno;
 	static int cnt;
 	static int frontSideCnt = 0;
 	static int backSideCnt = 0;
+	
+	public Coin() {
+		this.sno = ++ cnt;	// 코인번호 셋팅
+	}
 	
 	void flip() {
 		int rNum = (int)(Math.random()*2);
@@ -53,7 +57,7 @@ public class Test2 {
 
 		for(int i=0;i<10;i++) {
 			cArr[i] = new Coin();		// 각 객체화 처리
-			cArr[i].sno = ++Coin.cnt;	// 코인번호 셋팅
+			// cArr[i].sno = ++Coin.cnt;	// 코인번호 셋팅
 			cArr[i].flip();				// 동전던지기
 		}
 		
