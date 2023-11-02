@@ -1,5 +1,7 @@
 package cmmn;
 
+import java.text.DecimalFormat;
+
 public class Function {
 
 	public static boolean checkNum(String str) {
@@ -20,5 +22,9 @@ public class Function {
 		}
 	}
 	
+	public static String onlyNumComma(double str) {
+		DecimalFormat df = new DecimalFormat("###,###,###.###");
+		return df.format(str);
+	}
 	
 }
