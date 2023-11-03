@@ -29,12 +29,10 @@ class SutdaCard {
 
 class SutdaDeck {
 	String [] cards = new String[20];
-	SutdaCard[] sc = new SutdaCard[20];
 	SutdaDeck(){
 		for(int i=0;i<cards.length;i++) {
 			boolean flag = (((i+1)==1 || (i+1)==3 || (i+1)==8) && i<10)?true:false;
-			sc[i] = new SutdaCard(((i+1)%10)+"", flag);
-			cards[i] = sc[i].toString();
+			cards[i] = new SutdaCard(((i+1)%10)+"", flag).toString();
 		}
 	}
 	
