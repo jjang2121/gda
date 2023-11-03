@@ -32,7 +32,8 @@ class SutdaDeck {
 	SutdaDeck(){
 		for(int i=0;i<cards.length;i++) {
 			boolean flag = (((i+1)==1 || (i+1)==3 || (i+1)==8) && i<10)?true:false;
-			cards[i] = new SutdaCard(((i+1)%10)+"", flag).toString();
+			String num = ((((i+1)%10)==0)?10:((i+1)%10)) + "";
+			cards[i] = new SutdaCard(num, flag).toString();
 		}
 	}
 	
