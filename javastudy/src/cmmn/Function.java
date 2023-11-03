@@ -26,5 +26,10 @@ public class Function {
 		DecimalFormat df = new DecimalFormat("###,###,###.###");
 		return df.format(str);
 	}
-	
+	/*
+	public static String onlyNumComma1(double str) {
+		NumberFormat df = new NumberFormat.getInstance();
+		return df.format(str);
+	}
+	*/
 }

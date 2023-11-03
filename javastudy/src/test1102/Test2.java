@@ -153,12 +153,19 @@ class Cookie extends Snack {
 
 public class Test2 {
 	public static void main(String[] args) {
+		int pPoint = 0;
 		Apple apple = new Apple(1000,10.5);//가격, 당도(brix)
+		pPoint += apple.point;
 		Peach peach = new Peach(1000,13.5);//가격, 당도(brix)
+		pPoint += apple.point;
 		Cock cock = new Cock(500,500);   //가격, 용량(ml)
+		pPoint += apple.point;
 		Sidar sidar = new Sidar(1500,1000);//가격, 용량(ml)
+		pPoint += apple.point;
 		Biscuit bis = new Biscuit(10000,500);//가격, 무게(gram)
+		pPoint += apple.point;
 		Cookie cookie = new Cookie(500,5000);//가격, 무게(gram)
+		pPoint += apple.point;
 		
 		System.out.println("===== 기본형 출력 =====");
 		// 기본형 출력
@@ -197,5 +204,6 @@ public class Test2 {
 			System.out.println(sArr.getStr());
 		}
 		
+		System.out.println("적립포인트 : "+ pPoint);
 	}
 }

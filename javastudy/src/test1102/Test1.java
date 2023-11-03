@@ -36,6 +36,11 @@ class Employee {
 		this.address	= address;
 		this.dept		= dept;
 	}
+	
+	@Override
+	public String toString() {
+		return String.format("%s:이름=%s,주소=%s,부서=%s", type, name, address, dept);
+	}
 }
 
 class FormalEmployee extends Employee {
@@ -52,7 +57,7 @@ class FormalEmployee extends Employee {
 	}
 	@Override
 	public String toString() {
-		return String.format("%s:이름=%s,주소=%s,부서=%s,직원번호=%s,직급=%s,연봉=%d", type, name, address, dept, empNo, position, salary);
+		return super.toString() + String.format("직원번호=%s,직급=%s,연봉=%d", empNo, position, salary);
 	}
 }
 
@@ -69,7 +74,7 @@ class InformalEmployee extends Employee {
 	}
 	@Override
 	public String toString() {
-		return String.format("%s:이름=%s,주소=%s,부서=%s,계약만료일=%s,기본입금=%d", type, name, address, dept, expireDate, primaryPay);
+		return super.toString() + String.format("계약만료일=%s,기본입금=%d", expireDate, primaryPay);
 	}
 }
 
@@ -81,8 +86,13 @@ public class Test1 {
 		System.out.println(fe.name + "의 급여 : " + fe.getPay());
 
 		// 비정규직원 객체 생성
-		Date expireDate = new Date();
+		Date expireDate = new Date();	// now()
+		/*
+		날짜 : 1070년 1월 1일부터 현재까지의 시간을 밀리초로 계산
+		setTime() : 날짜지정 => 2년 후의 날짜로 지정
+		*/
 		expireDate.setTime(expireDate.getTime() + 1000L * 60 * 60 * 24 * 365 * 2);
+		System.out.println(expireDate.getTime());
 		InformalEmployee ie = new InformalEmployee("이비정", "서울시 구로구", "영업부", expireDate, 1000);
 		System.out.println(ie);
 		System.out.println(ie.name + "의 급여 : " + ie.getPay());
