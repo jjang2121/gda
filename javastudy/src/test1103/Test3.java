@@ -41,8 +41,8 @@ class SutdaDeck {
 	@Override
 	public String toString() {
 		String str = "";
-		for(String a : cards)	System.out.print(a+",");
-		return "";
+		for(String a : cards)	str += a+",";
+		return str;
 	}
 }
 
