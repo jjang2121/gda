@@ -23,7 +23,7 @@ public class Function {
 	}
 	
 	public static String onlyNumComma(double str) {
-		DecimalFormat df = new DecimalFormat("###,###,###.###");
+		DecimalFormat df = new DecimalFormat("###,###,###.######");
 		return df.format(str);
 	}
 	/*
