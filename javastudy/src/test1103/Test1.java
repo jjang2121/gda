@@ -28,14 +28,17 @@ package test1103;
 abstract class Animal {
 	String type;
 	int leg;
+	public Animal(String type, int leg) {
+		this.type = type;
+		this.leg = leg;
+	}
 	abstract void eat();
 	abstract void sound();
 }
 
 class Dog extends Animal {
 	Dog (){
-		this.type = "강아지";
-		this.leg = 4;
+		super("강아지", 4);
 	}
 	@Override
 	void eat() {
@@ -48,8 +51,7 @@ class Dog extends Animal {
 }
 class Lion extends Animal {
 	Lion () {
-		this.type = "사자";
-		this.leg = 4;
+		super("사자", 4);
 	}
 	@Override
 	void eat() {
