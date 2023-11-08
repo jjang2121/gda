@@ -11,16 +11,17 @@ public class StringEx3 {
 		System.out.println("main : " + str);
 		// str = change(str);
 		// System.out.println("change() 후 main : " + str);
-		System.out.println("change() 후 main : " + change(str));
+		str = change(str);
+		System.out.println("change() 후 main : " + str);
 	}
+
 	/*
-	private static String change(String str) {
+	private static void change(String str) {
 		str += "456";
 		System.out.println("change : " + str);
-		return str;
 	}
 	*/
 	private static String change(String str) {
-		return str+="456";
+		return str += "456";
 	}
 }
