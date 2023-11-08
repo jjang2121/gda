@@ -47,10 +47,10 @@ public class Test1 {
 					throw new StrCheck("오답입니다. 다시 입력하여 주세요.");
 				
 			} catch (InputMismatchException ex) {
-				System.out.println("1~100까지의 숫자만 입력하세요.");
+				System.out.println("1~100까지의 숫자만 입력하세요.:"+tryCnt);
 				scan.next();
 			} catch (StrCheck ex) {
-				System.out.println(ex.getMessage());
+				System.out.println(ex.getMessage()+":"+tryCnt);
 			}
 		}
 	}

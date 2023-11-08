@@ -37,7 +37,7 @@ class Student {
 	
 	@Override
 	public String toString() {
-		return name;
+		return "[학번=" + studno + ", 이름=" + name + ", 전공=" + major + "]";
 	}
 }
 
