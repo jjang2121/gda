@@ -19,8 +19,7 @@ public class Test4 {
 	
 	private static double round(double num, int posNum) {
 		double tempCalc = Math.pow(10, posNum);
-		num = Math.round(num * tempCalc);
-		num /= tempCalc;
+		num = Math.round(num * tempCalc)/tempCalc;
 		return num;
 	}
 	
