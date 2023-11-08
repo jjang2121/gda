@@ -7,9 +7,10 @@ package test1108;
  */
 public class Test2 {
 	public static void main(String[] args) {
-		String str = "base"; 
+		String str = "base";
 		System.out.println(str.replace('e','k')+"et");
-		str += "ball"; 
+		str = str.replace('e','k')+"et";
+		str += "ball";
 		System.out.println(str);
 	}
 }
