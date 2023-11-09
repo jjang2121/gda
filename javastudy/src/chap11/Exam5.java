@@ -6,9 +6,7 @@ import java.util.Date;
 import java.util.Scanner;
 
 /*
-delChar 메서드 구현하기
-StringBuffer delChar(원본문자열, 삭제문자열)
-	=> 원본 문자열에서 삭제 문자열을 제외한 문자열 리턴
+년도와 월을 읿력 받아 년월의 마지막 일자와 요일 출력하기
 */
 
 
