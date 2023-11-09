@@ -33,4 +33,28 @@ public class Function {
 	}
 	*/
 
+	// 비밀번호 체크
+	public static String pwChk(String pw) {
+		String rtnStr = "";
+		String[] chkStr = {"qwer","wert","erty","rtyu","tyui","yuii","uiop","asdf","sdfg","dfgh","fghj","ghjk","hjkl","jkl"};
+		char[] pwArr = pw.toCharArray();
+		int cuCnt=0, clCnt=0, cdCnt=0, ceCnt=0;
+		for(char p : pwArr) {
+			if(Character.isUpperCase(p))		cuCnt++;
+			else if(Character.isLowerCase(p))	clCnt++;
+			else if(Character.isDigit(p))		cdCnt++;
+			else								ceCnt++;
+		}
+		
+		// 영대소문자, 특수문자, 숫자 조합 체크
+		if(cuCnt == 0 || clCnt == 0 || cdCnt == 0 || ceCnt == 0) {
+			rtnStr = "FAIL|||||비밀번호는 영대소문자, 특수문자, 숫자 조합으로 입력하세요.";
+		} else if (pw.length() < 8) {
+			rtnStr = "FAIL|||||비밀번호는 8자리 이상으로 입력하세요.";
+		}else {
+			rtnStr = "OK|||||";
+		}
+		
+		return rtnStr;
+	}
 }

@@ -27,7 +27,7 @@ public class Test4 {
 		double tempCalc = Math.pow(10, posNum);
 		num = num * tempCalc;
 		String tmp = num + "";
-		tmp = tmp.substring(0, tmp.indexOf('.'));
+		if (tmp.indexOf('.') >= 0)	tmp = tmp.substring(0, tmp.indexOf('.'));
 		
 		return (Double.parseDouble(tmp)/tempCalc);
 	}
