@@ -39,6 +39,34 @@ import java.util.List;
 김삿갓:국어(95),영어(85),수학(75),총점(255),평균(85.00)
 홍길동:국어(90),영어(80),수학(70),총점(240),평균(80.00)
  */
+
+class Student {
+	String name	= "";
+	int kor=0,math=0,eng=0;
+	double avg=0;
+
+	public Student(String name, int kor, int math, int eng) {
+		this.name = name;
+		this.kor = kor;
+		this.math = math;
+		this.eng = eng;
+	}
+
+	public int getTotal() {
+		return (kor + math + eng);
+	}
+	
+	public void Calc() {
+		this.avg = (double)getTotal()/3;
+	}
+	
+	@Override
+	public String toString() {
+		return name + ":국어(" + kor + "),수학(" + math + "),영어(" + eng + "), 총점(" + getTotal() + "), 평균("
+				+ avg + ")";
+	}
+}
+
 public class Test3 {
 	public static void main(String[] args) {
 		List<Student> list = new ArrayList<Student>();
@@ -47,5 +75,16 @@ public class Test3 {
 		list.add(new Student("이몽룡", 80, 95, 95));
 		list.add(new Student("임꺽정", 60, 75, 100));
 
+		
+		/*Collections.sort(list, new Comparator<Student>() {
+			@Override
+			public int compare(Student s1, Student s2) {
+				return s1.name - s2.name;
+			}
+		});*/
+		for(Student s : list) {
+			s.Calc();
+			System.out.println(s);
+		}
 	}
 }
