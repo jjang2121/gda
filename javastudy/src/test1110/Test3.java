@@ -1,6 +1,8 @@
 package test1110;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /*
@@ -42,28 +44,28 @@ import java.util.List;
 
 class Student {
 	String name	= "";
-	int kor=0,math=0,eng=0;
+	int kor=0,eng=0,math=0,tot=0;
 	double avg=0;
 
-	public Student(String name, int kor, int math, int eng) {
+	public Student(String name, int kor, int eng, int math) {
 		this.name = name;
 		this.kor = kor;
-		this.math = math;
 		this.eng = eng;
+		this.math = math;
+		this.tot = (kor + eng + math);
 	}
 
 	public int getTotal() {
-		return (kor + math + eng);
+		return this.tot;
 	}
 	
 	public void Calc() {
 		this.avg = (double)getTotal()/3;
 	}
-	
+
 	@Override
 	public String toString() {
-		return name + ":국어(" + kor + "),수학(" + math + "),영어(" + eng + "), 총점(" + getTotal() + "), 평균("
-				+ avg + ")";
+		return String.format("%s:국어(%d),영어(%d),수학(%d), 총점(%d), 평균(%.2f)", name, kor, eng, math, getTotal(), avg);
 	}
 }
 
@@ -76,15 +78,70 @@ public class Test3 {
 		list.add(new Student("임꺽정", 60, 75, 100));
 
 		
-		/*Collections.sort(list, new Comparator<Student>() {
+		// 기본정렬방식 : 이름 오름차순으로 정렬
+		System.out.println("기본정렬방식 : 이름 오름차순으로 정렬");
+		Collections.sort(list, new Comparator<Student>() {
 			@Override
 			public int compare(Student s1, Student s2) {
-				return s1.name - s2.name;
+				return s1.name.compareTo(s2.name);
 			}
-		});*/
+		});
 		for(Student s : list) {
 			s.Calc();
 			System.out.println(s);
 		}
+		
+		// 총점기준 내림차순 정렬
+		System.out.println("총점기준 내림차순 정렬");
+		Collections.sort(list, new Comparator<Student>() {
+			@Override
+			public int compare(Student s1, Student s2) {
+				return s2.tot - s1.tot;
+			}
+		});
+		for(Student s : list) {
+			s.Calc();
+			System.out.println(s);
+		}
+
+		// 국어 점수내림차순 정렬
+		System.out.println("국어 점수내림차순 정렬");
+		Collections.sort(list, new Comparator<Student>() {
+			@Override
+			public int compare(Student s1, Student s2) {
+				return s2.kor - s1.kor;
+			}
+		});
+		for(Student s : list) {
+			s.Calc();
+			System.out.println(s);
+		}
+		
+		// 영어 점수내림차순 정렬
+		System.out.println("영어 점수내림차순 정렬");
+		Collections.sort(list, new Comparator<Student>() {
+			@Override
+			public int compare(Student s1, Student s2) {
+				return s2.eng - s1.eng;
+			}
+		});
+		for(Student s : list) {
+			s.Calc();
+			System.out.println(s);
+		}
+
+		// 수학 점수내림차순 정렬
+		System.out.println("수학 점수내림차순 정렬");
+		Collections.sort(list, new Comparator<Student>() {
+			@Override
+			public int compare(Student s1, Student s2) {
+				return s2.math - s1.math;
+			}
+		});
+		for(Student s : list) {
+			s.Calc();
+			System.out.println(s);
+		}
+
 	}
 }

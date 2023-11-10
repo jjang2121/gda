@@ -55,15 +55,17 @@ public class Test2 {
 		int sum = 0;
 		for(int n : list)	sum += n;
 		System.out.println();
-		System.out.println("홀수입력데이터 : "+ list);
-		System.out.println("홀수의 총합 : "+ sum + ", 최대 : "+ Collections.max(list)+ ", 최소 : "+ Collections.min(list));
+		System.out.println(list + "의 합 : "+ sum);
+		System.out.println("홀수의 최대값 : "+ Collections.max(list));
+		System.out.println("홀수의 최소값 : "+ Collections.min(list));
 		System.out.println("홀수의 최대값 위치 : "+ list.indexOf(Collections.max(list)));
 		System.out.println("홀수의 최소값 위치 : "+ list.indexOf(Collections.min(list)));
 		
 		
+		System.out.println("입력된 홀수 목록 : "+ list);
 		// 정렬처리
 		list.sort(Comparator.naturalOrder());
-		System.out.println("정렬데이터 : "+ list);
+		System.out.println("정렬된 홀수 목록 : "+ list);
 		
 		// 평균
 		int lSize = list.size();

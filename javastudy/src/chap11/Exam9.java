@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 public class Exam9 {
 	public static void main(String[] args) throws ParseException {
-		String data = "번호:900,이름:홍길동,국어:100,영어:70,수학:85,과학:95";
+		String data = "번호:1,이름:홍길동,국어:100,영어:70,수학:85,과학:95,물리:100";
 		// String pattern = "[0-9]{2,3}";
 		// String pattern = "\\d{2,3}";
 		// String pattern = "100";		// 100점만 찾기
