@@ -1,6 +1,10 @@
 package cmmn;
 
 import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Function {
 
@@ -33,6 +37,19 @@ public class Function {
 	}
 	*/
 
+	public static int dateDiff(String sDay, String eDay) throws ParseException {
+		int rtnDay = 0;
+		Calendar c = Calendar.getInstance();
+		c.setTime(null);
+		Date sdate = new SimpleDateFormat("yyyyMMdd").parse(sDay.replace("-","").replace(".",""));
+		Date edate = new SimpleDateFormat("yyyyMMdd").parse(eDay.replace("-","").replace(".",""));
+		c.setTimeInMillis(sdate.getTime()-edate.getTime());
+		
+		long diffTime = c.getTimeInMillis();
+		
+		return rtnDay;
+	}
+	
 	// 비밀번호 체크
 	public static String pwChk(String pw) {
 		String rtnStr = "";

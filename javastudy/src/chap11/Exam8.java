@@ -33,10 +33,13 @@ public class Exam8 {
 	}
 
 	public static void getCalendar(int year, int month) throws ParseException {
-		String cDate = year +"-"+ String.format("%02d", month)+"-01";
+		String cDate = year +"-"+ month +"-1";
 		Calendar c = Calendar.getInstance();
 		c.setTime(new SimpleDateFormat("yyyy-MM-dd").parse(cDate));
-		long getCTime = new SimpleDateFormat("yyyy-MM-dd").parse(cDate).getTime();
+		// c.set(year, month-1, 1);	// 월에 -1 처리
+		// System.out.println(c.toString());
+		// long getCTime = new SimpleDateFormat("yyyy-MM-dd").parse(cDate).getTime();
+		// long getCTime = c.getTimeInMillis();
 		
 		int firstWeekDay = c.get(Calendar.DAY_OF_WEEK);
 		int lastDay = c.getActualMaximum(Calendar.DATE);	// 마지막 일자

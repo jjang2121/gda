@@ -41,7 +41,7 @@ public class Test3 {
 			}
 			
 		} catch(NullPointerException ex) {
-			return "null";
+			return null;
 		} catch(Exception ex) {
 			System.out.println(ex.getMessage());
 			return "";
