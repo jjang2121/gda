@@ -37,16 +37,20 @@ public class Function {
 	}
 	*/
 
-	public static int dateDiff(String sDay, String eDay) throws ParseException {
+	public static int dateDiff(String sDay, String eDay) {
 		int rtnDay = 0;
-		Calendar c = Calendar.getInstance();
-		c.setTime(null);
-		Date sdate = new SimpleDateFormat("yyyyMMdd").parse(sDay.replace("-","").replace(".",""));
-		Date edate = new SimpleDateFormat("yyyyMMdd").parse(eDay.replace("-","").replace(".",""));
-		c.setTimeInMillis(sdate.getTime()-edate.getTime());
-		
-		long diffTime = c.getTimeInMillis();
-		
+		try {
+			Calendar c = Calendar.getInstance();
+			Date sDate = new SimpleDateFormat("yyyyMMdd").parse(sDay.replace("-","").replace(".",""));
+			Date eDate = new SimpleDateFormat("yyyyMMdd").parse(eDay.replace("-","").replace(".",""));
+			c.setTimeInMillis(eDate.getTime()-sDate.getTime());
+			
+			rtnDay = (int)(c.getTimeInMillis()/(1000L*60*60*24));
+		}catch(ParseException ex) {
+			System.out.println("Error : "+ ex.getMessage());
+			return 0;
+		}
+
 		return rtnDay;
 	}
 	
