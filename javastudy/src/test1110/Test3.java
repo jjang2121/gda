@@ -70,7 +70,7 @@ class Student {
 
 public class Test3 {
 	public static void main(String[] args) {
-		List<Student> list = new ArrayList<Student>();
+		List<Student> list = new ArrayList<>();
 		list.add(new Student("홍길동", 90, 80, 70));
 		list.add(new Student("김삿갓", 95, 85, 75));
 		list.add(new Student("이몽룡", 80, 95, 95));
