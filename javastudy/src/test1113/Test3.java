@@ -56,15 +56,15 @@ public class Test3 {
 				}else {							// 궁합음식 미존재 입력여부 판별
 					while(true) {
 						System.out.println(strFood1 + "의 궁합음식이 등록되어 있지 않습니다.등록하시겠습니까?(y,n)");
-						strFood2 = scan.next();
-						if(strFood2.equalsIgnoreCase("y")) {
+						strFood2 = scan.next();						// 음식 등록여부 값 입력
+						if(strFood2.equalsIgnoreCase("y")) {		// 궁합음식 등록
 							System.out.println(strFood1 + "의 궁합음식을 등록하세요.");
-							strFood2 = scan.next();
+							strFood2 = scan.next();					// 궁합음식 정보
 							fm.put(strFood1, strFood2);
 							break;
-						}else if(strFood2.equalsIgnoreCase("n")) {
+						}else if(strFood2.equalsIgnoreCase("n")) {	// 궁합음식 미등록
 							break;
-						}else {
+						}else {										// 기타문자들 입력 시
 							System.out.println("올바르지 않은 답변입니다.");
 						}
 					}

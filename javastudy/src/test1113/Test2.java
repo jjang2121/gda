@@ -15,7 +15,7 @@ import java.util.TreeSet;
  * 
  *[결과]
 1부터 99까지의 숫자를 입력하세요 (종료 : 0)
-1 2 5 9 1 100 12 3 2 5 64 123 4 5 0
+1 2 5 9 1 100 12 3 2 5 64 123 4 5 ㅁㅁ  $    0
 set1:[1, 2, 3, 4, 5, 9, 12, 64]
 set2:[64, 12, 9, 5, 4, 3, 2, 1]
  */
@@ -30,8 +30,8 @@ public class Test2 {
 				int strInt = scan.nextInt();
 				if(strInt == 0)	break;
 				if (strInt > 0 && strInt < 100) {
-					nSet.add(strInt);
-					rSet.add(strInt);
+					nSet.add(strInt);	//오름차순 등록
+					rSet.add(strInt);	//내림차순 등록
 				}
 
 			} catch (Exception ex) {

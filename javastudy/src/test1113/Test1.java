@@ -38,20 +38,18 @@ public class Test1 {
 		Set<Integer> lotto = new LinkedHashSet<>();
 		while(lotto.size()<6) {
 			Random rdn = new Random();
-			lotto.add(rdn.nextInt(1000));
+			lotto.add(rdn.nextInt(1000)+1);
 		}
-		// top6 저장
-		List<Integer> top6 = new ArrayList<Integer>(lotto);
 		// top3 저장
-		List<Integer> top3 = new ArrayList<Integer>(top6.subList(0, 3));
+		List<Integer> top3 = new ArrayList<Integer>(new ArrayList<Integer>(lotto).subList(0, 3));
 		System.out.println("3등 복권 추첨합니다.");
 		for(int i3 : top3)	System.out.println(i3);
 		// top2 저장
-		List<Integer> top2 = new ArrayList<Integer>(top6.subList(3, 5));
+		List<Integer> top2 = new ArrayList<Integer>(new ArrayList<Integer>(lotto).subList(3, 5));
 		System.out.println("2등 복권 추첨합니다.");
 		for(int i2 : top2)	System.out.println(i2);
 		// top1 저장
-		List<Integer> top1 = new ArrayList<Integer>(top6.subList(5, 6));
+		List<Integer> top1 = new ArrayList<Integer>(new ArrayList<Integer>(lotto).subList(5, 6));
 		System.out.println("1등 복권 추첨합니다.");
 		for(int i1 : top1)	System.out.println(i1);
 		

@@ -11,7 +11,7 @@ Collection 인터페이스	:	여려개의 객체를 저장할 수 있는 객체
 	- List 인터페이스 	:	Collection 인터페이스의 하위 인터페이스
 						저장된 객체들의 순서 유지 => 인덱스 사용 가능
 						가변배열이라고도 함.
-						구현클래스 : ArrayList, Vector(jdk1버전, 구버전리스트), LinkedList
+						구현클래스 : ArrayList, Vector(jdk1버전, 구버전리스트), LinkedList (순서유지, 중복안됨)
 	- Set 인터페이스	:	Collection 인터페이스의 하위 인터페이스
 						중복된 객체를 저장하지 않음.
 						순서는 유지하지 않음. => 인덱스 사용 불가
