@@ -44,6 +44,7 @@ public class Test2 {
 			try {
 				num = scan.nextInt();
 				if(num == 0) 		break;			// 0 입력 시 종료
+				if(num < 0) 		continue;		// 0 이하 입력 시 Pass
 				if(num % 2 == 1)	list.add(num);	// 홀수인 자연수만 등록
 			}catch(Exception ex) {
 				// System.out.println("올바른 자연수를 입력하세요.");

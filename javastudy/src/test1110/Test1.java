@@ -34,7 +34,7 @@ public class Test1 {
 		while(true) {
 			try {
 				String str = scan.next();
-				if(str.equals("q")) {
+				if(str.equalsIgnoreCase("q")) {
 					System.out.println("프로그램 종료");
 					break;
 				}
@@ -43,7 +43,7 @@ public class Test1 {
 						
 				for(int i=0;i<phoneNumArr.length;i++) {
 					Pattern p = Pattern.compile(pattern);
-					Matcher m = p.matcher(phoneNumArr[i]);
+					Matcher m = p.matcher(phoneNumArr[i].replace("-", ""));
 					if(m.find()) {
 						// System.out.println(m.group());
 						System.out.println(phoneNumArr[i]);
