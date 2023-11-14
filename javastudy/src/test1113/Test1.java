@@ -36,12 +36,13 @@ import java.util.Set;
 public class Test1 {
 	public static void main(String[] args) {
 		Set<Integer> lotto = new LinkedHashSet<>();
+		Random rdn = new Random();
+		rdn.setSeed(System.currentTimeMillis());
 		while(lotto.size()<6) {
-			Random rdn = new Random();
 			lotto.add(rdn.nextInt(1000)+1);
 		}
 		// top3 저장
-		List<Integer> top3 = new ArrayList<Integer>(new ArrayList<Integer>(lotto).subList(0, 3));
+		List<Integer> top3 = new ArrayList<Integer>(new ArrayList<Integer>(lotto).subList(0, 3)); //List <- Set
 		System.out.println("3등 복권 추첨합니다.");
 		for(int i3 : top3)	System.out.println(i3);
 		// top2 저장
@@ -53,6 +54,8 @@ public class Test1 {
 		System.out.println("1등 복권 추첨합니다.");
 		for(int i1 : top1)	System.out.println(i1);
 		
+		
+		
 		System.out.println("*** 복권 추첨 결과 ***");
 		System.out.println("1등 : " + replaceStr(top1));
 		// top2.sort(Comparator.naturalOrder());
@@ -61,6 +64,7 @@ public class Test1 {
 		// top3.sort(Comparator.naturalOrder());
 		Collections.sort(top3);
 		System.out.println("3등 : " + replaceStr(top3));
+
 	}
 	
 	private static String replaceStr(List<Integer> str) {

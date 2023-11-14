@@ -11,8 +11,8 @@ SutdaCard 클래스 구현
 */
 
 class SutdaCard {
-	int num;
-	boolean isKwang;
+	final int num;
+	final boolean isKwang;
 	SutdaCard(int num, boolean isKwang) {
 		this.num = num;
 		this.isKwang = isKwang;
@@ -66,7 +66,7 @@ class SutdaDeck {
 		return cards.remove(idx);
 	}
 	SutdaCard pick() {
-		int randNo = (int)(Math.random())*cards.size();
+		int randNo = (int)(Math.random()*cards.size());
 		return cards.remove(randNo);
 	}
 	public void shuffle() {
@@ -75,9 +75,46 @@ class SutdaDeck {
 	}
 }
 
+/*
+Player 클래스
+멤버변수	:	name
+			SutdaCard card1, card2
+생성자	:	멤버값을 받아서 객체 생성
+멤버메서드
+	int getScore() : card1, card2로 점수 리턴
+					 jokbo객체 존재하는 경우 jokbo의 값을 리턴
+					 jokbo객체에 없는 경우 (card1.num + card2.num)%10 점수 리턴
+	String toString()	:	이름과 카드2장, 점수 출력
+			홍길동(2,8k):0점
+			김삿갓(4,8):2점
+			이몽룡(1k,3k):4000점
+*/
 class Player {
-	List<String> playCard = new ArrayList<>();
-	Player () {
+	final String name;
+	SutdaCard card1;
+	SutdaCard card2;
+	Player (String name, SutdaCard card1, SutdaCard card2) {
+		this.name = name;
+		this.card1 = card1;
+		this.card2 = card2;
+	}
+	
+	int getScore() {
+		Integer score = 0;
+		if(card1.isKwang && card2.isKwang) {
+			score = SutdaDeck.jokbo.get("KK");
+		}else {
+			score = SutdaDeck.jokbo.get("" + card1.num + card2.num);
+			if(score == null) {
+				score = (card1.num + card2.num) % 10;
+			}
+		}
+		return score;
+	}
+	
+	@Override
+	public String toString() {
+		return this.name+"("+card1+","+card2+"):"+getScore();
 	}
 }
 
@@ -85,5 +122,35 @@ public class SutdaCardEx1 {
 	public static void main(String[] args) {
 		SutdaDeck deck = new SutdaDeck();
 		deck.shuffle();
+		System.out.println();
+		
+		List<Player> player = new ArrayList<>();
+		player.add(new Player("홍길동", deck.pick(0), deck.pick(0)));
+		player.add(new Player("김삿갓", deck.pick(0), deck.pick(0)));
+		player.add(new Player("이몽룡", deck.pick(0), deck.pick(0)));
+		player.add(new Player("성춘향", deck.pick(0), deck.pick(0)));
+
+		for(Player p : player)
+			System.out.println(p);
+		
+		System.out.println("잔여카드 수 : "+ deck.cards.size()+ "장");
+		System.out.println("잔여카드 : "+ deck.cards);
+		
+		/*
+		Player 중 승리자 이름 출력하기
+		1등이 한명 : 홍길동 승리
+		1등이 2명인 경우 : 홍길동, 김삿갓 비김
+		*/
+		// 정렬
+		player.sort((j1, j2)->j2.getScore() - j1.getScore());
+		
+		System.out.println(player);
+		System.out.println();
+		if(player.get(0).getScore() == player.get(1).getScore()) {
+			System.out.println(player.get(0).name + ", " + player.get(1).name + " 비김");
+		}else {
+			System.out.println(player.get(0).name + " 승리");
+		}
+		
 	}
 }

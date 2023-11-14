@@ -26,8 +26,8 @@ public class SetEx1 {
 	public static void main(String[] args) {
 		Object[] arr = {"홍길동", "1", "2", "10", "김삿갓", "이몽룡", "홍길동", "성춘향", "향단이", "홍길동", "김삿갓"};
 		
-		// Set<Object> set1 = new HashSet<>();
-		// Set<Object> set1 = new TreeSet<>();	// 객체 내 동일 타입으로 입력되어야 함.
+		//Set<Object> set1 = new HashSet<>();
+		//Set<Object> set1 = new TreeSet<>();	// 객체 내 동일 타입으로 입력되어야 함.
 		Set<Object> set1 = new LinkedHashSet<>();
 		Set<Object> set2 = new HashSet<>();
 		Set<Object> set3 = new HashSet<>();
