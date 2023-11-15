@@ -25,7 +25,7 @@ package test1114;
 .....
  */
 public class Test2 {
-	public static void main(String[] args) throws FileNotFoundException {
+	public static void main(String[] args) {
 		FileInputStream fis;
 		InputStreamReader rd;
 		Scanner scan = new Scanner(System.in);
@@ -39,7 +39,9 @@ public class Test2 {
 				}
 				String fileUrl = "./src/chap14/" + str;
 				System.out.println("===== read() =====");
+				// 파일 없는 경우 : FileNotFoundException 예외 발생
 				fis = new FileInputStream(fileUrl);
+				// 읽어올 파일이 있는 경우 실행
 				rd = new InputStreamReader(fis);
 				int data = 0;
 				while((data = rd.read()) != -1)
@@ -60,7 +62,8 @@ public class Test2 {
 				while((data = rd.read(buf,0,buf.length)) != -1)
 					System.out.print(new String(buf,0,data));
 				
-				
+			}catch(FileNotFoundException ex) {
+				System.out.println("해당 파일 없음");
 			}catch(Exception ex) {
 				System.out.println("오류발생"+ex.getMessage());
 			}
