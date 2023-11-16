@@ -19,7 +19,7 @@ CA FE BA BE 00 00 00 34 00 8E 07 00 02 01 00 17
 public class Test3 {
 	public static void main(String[] args) throws IOException {
 		String filePath = "bin/chap14/InputStreamEx1.class";
-		String binTxt = "";
+		// String filePath = "chap14/apple.gif";
 		
 		FileInputStream fis = new FileInputStream(filePath);
 		byte[] buf = new byte[fis.available()];
@@ -27,10 +27,11 @@ public class Test3 {
 		int len = 0;
 		int cnt = 0;
 		while((len = fis.read()) != -1) {
-			//System.out.printf("%2s ", Integer.toHexString(len).toUpperCase());
 			System.out.printf("%02X ", len);
 			cnt++;
 			if(cnt%16==0) System.out.println();
 		}
+		fis.close();
+		
 	}
 }
