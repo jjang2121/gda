@@ -30,7 +30,7 @@ class DataAddThread1 extends Thread {
 			String setStr = "";	// 입력문자열 변수
 			int rndNo = (int)(Math.random()*2)+3;	//3~4자리
 			for(int i=0;i<rndNo;i++) {	// 3~4자리 문자열 조합
-				int num = (int)(Math.random()*26)+97;	//a~z까지 조합
+				int num = (int)(Math.random()*26)+(int)'a';	//a~z까지 조합
 				setStr += (char)num;
 			}
 			words.add(setStr);	// 조합 문자열 저장
@@ -53,7 +53,7 @@ public class Test2 {
 		
 		while(true) {
 			System.out.println(dat1.words);
-			System.out.println("=>");
+			System.out.print("=>");
 			inputStr = scan.next();
 			dat1.words.remove(inputStr);
 			
